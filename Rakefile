@@ -1,12 +1,12 @@
 desc 'Sleep for n seconds'
 task :sleep, [:n] do |t, args|
-  sleep args[:n]
+  sleep args[:n].to_i
   puts `date`
 end
 
 [3, 5, 7].each do |n|
   desc "Sleep for #{n} seconds"
-  task "sleep#{n}".to_sym do
-    Rake::Task[:sleep].execute n
+  task "sleep#{n}" do
+    Rake::Task[:sleep].execute n: n
   end
 end
