@@ -1,7 +1,7 @@
 desc 'Sleep for n seconds'
 task :sleep, [:n] do |t, args|
   sleep args[:n].to_i
-  puts `date`
+  puts Time.now
 end
 
 [3, 5, 7].each do |n|
